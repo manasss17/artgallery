@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Commission Orders - My Art Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    // JavaScript to get painting name from URL
+    window.onload = function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const painting = urlParams.get('painting');
+      if (painting) {
+        document.getElementById("selected-painting").innerText = `You are ordering: ${painting}`;
+        document.getElementById("details").value = `Painting Selected: ${painting}`;
+        document.getElementById("type").value = "original";
+      }
+    };
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Place an Order</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="paintings.html">Paintings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Order Form</h2>
+    <p id="selected-painting" style="font-weight: bold; color: green;"></p>
+
+    <form action="#" method="post">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="type">Type of Order:</label>
+      <select id="type" name="type" required>
+        <option value="">Select</option>
+        <option value="commission">Commission Work</option>
+        <option value="original">Original Painting</option>
+      </select>
+
+      <label for="details">Describe Your Painting or Confirm Selection:</label>
+      <textarea id="details" name="details" required></textarea>
+
+      <label for="review">Leave a Review (optional):</label>
+      <textarea id="review" name="review" placeholder="Share your thoughts..."></textarea>
+
+      <button type="submit">Place Order</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 My Art Portfolio. All rights reserved.</p>
+  </footer>
+</body>
+</html>
